@@ -2,7 +2,7 @@
 Hotel Management System
 
 
-#Used technologies:
+# Used technologies:
 
 HTML, CSS, Javascript, Bootstrap
 Flask
