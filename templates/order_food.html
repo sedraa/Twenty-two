@@ -1,0 +1,66 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+    <h1>Hotel Menu</h1>
+<form id="order-form">
+  <div>
+    <label for="booking-id">Booking ID:</label>
+    <input type="text" name="booking_id" id="booking-id">
+  </div>
+  <div>
+    <label for="delivery-time">Delivery Time:</label>
+    <input type="datetime-local" name="delivery_time" id="delivery-time">
+  </div>
+  {% for food_item in food_items %}
+    <div class="food-item">
+      <img src="{{ food_item.image_url }}">
+      <div class="name">{{ food_item.name }}</div>
+      <div class="price">${{ food_item.price }}</div>
+      <button class="add-btn" data-food-id="{{ food_item.id }}">+</button>
+      <button class="remove-btn" data-food-id="{{ food_item.id }}" style="display: none;">-</button>
+      <input type="hidden" name="food_id[]" value="{{ food_item.id }}">
+      <input type="hidden" name="food_count[]" value="0">
+    </div>
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}
+{% block scripts %}
+<script>
+  $(function() {
+  console.log("hjvhjvh");
+    $('.add-btn').click(function() {
+      var foodId = $(this).data('food-id');
+      console.log(foodId);
+      var foodCount = parseInt($(this).siblings('input[name="food_count[]"]').val()) + 1;
+      console.log(foodCount);
+      $(this).siblings('input[name="food_count[]"]').val(foodCount);
+      $(this).siblings('.remove-btn').show();
+    });
+    $('.remove-btn').click(function() {
+      var foodId = $(this).data('food-id');
+      var foodCount = parseInt($(this).siblings('input[name="food_count[]"]').val()) - 1;
+      $(this).siblings('input[name="food_count[]"]').val(foodCount);
+      if (foodCount == 0) {
+        $(this).hide();
+      }
+    });
+    $('#order-form').submit(function(event) {
+      event.preventDefault();
+      var formData = $(this).serializeArray();
+      $.ajax({
+        url: '/order',
+        method: 'POST',
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        success: function(response) {
+          alert('Order submitted successfully!');
+        },
+        error: function(xhr, status, error) {
+          alert('Error submitting order.');
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}

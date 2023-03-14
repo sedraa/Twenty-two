@@ -1,0 +1,39 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+ <h1>Bookings List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Number of Guests</th>
+          <th>Room Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(function() {
+  $('a.nav-link').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $('#central-div').load(url);
+  });
+});
+</script>
+{% endblock %}
