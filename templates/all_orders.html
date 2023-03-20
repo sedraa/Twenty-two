@@ -1,0 +1,51 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+ <h1>Room Bookings List</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">From Date</th>
+          <th scope="col">To Date</th>
+          <th scope="col">Number of Guests</th>
+          <th scope="col">Room Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in booking.room%}
+        <tr>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+ <h1> Taxi Bookings List</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Source</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in booking.taxi%}
+        <tr>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+<script>
+</script>
+{% endblock %}
