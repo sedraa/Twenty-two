@@ -15,7 +15,7 @@ The major issue is that the user need to type the source and destination address
 I search for different APIs and code snippet which will help me in populating the address automatically, according to the inputs user is providing. I got some of the APIs provided by google maps, bing map and other platforms but those were paid version. Since, I was looking for a free version, so I opted for Leaflet and OpenStreetMap API in my implementation. I have added the credit to those platform in the input field. However the API is free but it takes much time to make those work as there were some version issues which I got to deal with. I also faced lot of initial problem fetching the address values passed by user in the input fields using javascript, which could be send to backend to be stored.
 
 ## 2. Alarm setup:
-We are working with a webapp and only have the access to user's browser. So, it was quite challenging to set up an alarm in browser.
+I working with a webapp and only have the access to user's browser. So, it was quite challenging to set up an alarm in browser.
 After searching for multiple solution in web, none of them was giving desired implementation. Most of them were either prompting a alert message or playing a sound from backend.
 Then I tried to work along with my own implementation and successfully got the result. I tried below options in my implementation.
 * Gave the user a form to enter the date and time for the alarm.
