@@ -1,0 +1,29 @@
+.food-item {
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        height:300px;
+        width: 200px
+    }
+
+.food-details {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+  }
+
+#date-time{
+float:left;
+}
+
+#main
+{
+margin:20px;
+flex:1;
+}
+body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
