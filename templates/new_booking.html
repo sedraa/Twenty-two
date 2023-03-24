@@ -1,0 +1,36 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+ <div class="container">
+      <h1>Booking Form</h1>
+      <form method="POST" action="/new-booking">
+        <div class="form-group">
+          <label for="from-date">From Date:</label>
+          <input name="from-date" type="date" class="form-control" required id="from-date" name="from-date">
+        </div>
+        <div class="form-group">
+          <label for="to-date">To Date:</label>
+          <input name="to-date" type="date" class="form-control" required id="to-date" name="to-date">
+        </div>
+        <div class="form-group">
+          <label for="num-guests">Number of Guests:</label>
+          <input name="num-guest" type="number" class="form-control" required id="num-guests" name="num-guests" min="1" max="10" step="1">
+        </div>
+        <div class="form-group">
+          <label for="room-type">Room Type:</label>
+          <select namwe="room-type" class="form-control" id="room-type" required name="room-type">
+            <option value="AC">AC</option>
+            <option value="Non AC">Non AC</option>
+          </select>
+            <input type="hidden" name="room_id" readonly value="{{ roomid }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+ </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+</script>
+{% endblock %}
