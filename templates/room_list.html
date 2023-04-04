@@ -1,0 +1,87 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<h1>Rooms</h1>
+<div class="container-fluid">
+<div class="row justify-content-md-center">
+<div class="row">
+{% for room in roomlist %}
+<div class="col-md-6">
+<div class="room">
+<img class="room-img rounded" src="{{ room.image_url }}" style="width: 100%; height: auto;">
+<div class="name">{{ room.name }}</div>
+<div class="price">£{{ room.price }}</div>
+<input type="hidden" name="room_avl" readonly value={{ room.availability }}>
+<input type="hidden" name="room_id" readonly value={{ room.id }}>
+<button class="room-book btn btn-primary" data-toggle="modal" data-target="#bookingModal" data-roomid="{{ room.id }}" style="margin-bottom:20px">Book now</button>
+</div>
+</div>
+{% endfor %}
+</div>
+  <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLabel">Booking Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/new-booking">
+            <div class="form-group">
+              <label for="from-date">From Date:</label>
+              <input type="date" class="form-control" id="from-date" name="from-date">
+            </div>
+            <div class="form-group">
+              <label for="to-date">To Date:</label>
+              <input type="date" class="form-control" id="to-date" name="to-date">
+            </div>
+          <div class="form-group">
+          <label for="num-guests">Number of Guests:</label>
+          <input type="number" class="form-control" id="num-guests" name="num-guests" min="1" max="10" step="1">
+        </div>
+        <div class="form-group">
+          <label for="room-type">Room Type:</label>
+          <select class="form-control" id="room-type" name="room-type">
+            <option value="AC">AC</option>
+            <option value="Non AC">Non AC</option>
+          </select>
+            <input type="hidden" name="room-id" value=0>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+     $('.room-book').each(function() {
+    var room_avl = parseInt($(this).siblings('input[name="room_avl"]').val());
+    if (room_avl <= 0)
+    {
+    $(this).replaceWith("<h6>Room unavailable</h6>");
+    }
+  });
+       $('.room-book').click(function() {
+    var room_id = parseInt($(this).siblings('input[name="room_id"]').val());
+    var room_avl = parseInt($(this).siblings('input[name="room_avl"]').val());
+    console.log(room_avl);
+    if (room_avl > 0) {
+        $('#bookingModal').find('input[name="room-id"]').val(room_id);
+    }
+  });
+</script>
+{% endblock %}
+
+<!-- Popup Window Code -->
+{% block modals %}
+
+
+{% endblock %}
