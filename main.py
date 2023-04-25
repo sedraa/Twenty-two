@@ -53,8 +53,8 @@ def login():
 def sendmail(userid,body):
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
-    sender_email = 'abhilekhnathdas111@gmail.com'
-    sender_password = 'nkxsuitgesslvujk'
+    sender_email = ''
+    sender_password = ''
 
     c.execute("SELECT email FROM Guest WHERE id=?", (userid,))
     recipient_email = c.fetchall()[0][0]
