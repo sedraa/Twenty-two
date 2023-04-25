@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twenty two</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet-geosearch@3.3.2/dist/geosearch.css"
+/>
+  <script src="https://unpkg.com/leaflet-geosearch@3.3.2/dist/geosearch.umd.js"></script>
+	<style>
+		#map {
+			height: 300px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Twenty Two</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/room-list">Room Booking</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/order-food">Order Food</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/taxi-booking">Taxi Service</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/all-orders/nm">All Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/wakeup-alarm">Wake-up Calls</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/self-ci-co">Self Checkin/Checkout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id = "central-div">
+     <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 text-center">
+          <h1 class="mb-4">Twenty Two Hotel</h1>
+          <p class="lead">Welcome to Twenty Two Hotel, the perfect destination for your next getaway. Our luxurious accommodations and top-notch facilities will ensure that your stay is a memorable one.</p>
+        </div>
+      </div>
+     </div>
+  </div>
+  <div id = "main">
+{% block content %}
+    {% endblock %}
+    </div>
+<footer style = "margin-top:100px;" class="bg-dark text-light py-3">
+  <div class="container d-flex justify-content-center mt-3">
+    <p>&copy; Twenty two</p>
+  </div>
+</footer>
+</body>
+{% block scripts %}
+{% endblock %}
+</html>

@@ -1,0 +1,35 @@
+<html>
+<body>
+<h1>Alarm page</h1>
+<p>Your alarm will be set once you click below button, please keep this page open to get the alarm. You can close this page if you do not need alarm.</p>
+<button id = "confirm">Confirm you want to have alarm</button>
+	<script>
+	            //get date and time of alarm
+				var alarmDateTime = new Date("{{ alarm_datetime }}");
+				var now = new Date();
+				var timeDiff = alarmDateTime.getTime() - now.getTime();
+				// create and audio element and event listener to make it play once clicked.
+				var audio = document.createElement('audio');
+				audio.src = "../static/alarm.mp3";
+				audio.autoplay = false;
+				audio.id = "Audio"
+				audio.volume = 1;
+				document.body.appendChild(audio);
+				document.getElementById("Audio").addEventListener('click', function () {
+					this.play();
+				});
+		// If the provided time has already passed
+		if (timeDiff <= 0) {
+			alert("Invalid time. Please choose a future time.");
+			window.close();
+		}
+		//else play the sound by clicking to audio element
+		else {
+			setTimeout(function() {
+			    window.focus();
+				document.getElementById("Audio").click();
+			}, timeDiff);
+		}
+	</script>
+</body>
+</html>

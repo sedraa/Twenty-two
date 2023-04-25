@@ -1,0 +1,13 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<h1>Alarm page</h1>
+<p>A new page has been open where you need to confirm that you need alarm, else you can close that tab.</p>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+	// open a new web page for alarm
+	var newWindow = window.open("/alarm/{{alarm_datetime}}", "_blank");
+	</script>
+{% endblock %}
