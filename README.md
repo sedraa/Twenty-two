@@ -8,6 +8,43 @@ HTML, CSS, Javascript, Bootstrap
 Flask
 sqlite3
 
+# Introduction
+
+Hospitability industry is growing with a very rapid pace. Every business owner wants to improve on
+the services provided to the customer directly impacting the overall business growth. In this project
+a Hotel Management System is designed to improve upon the overall customer experience. There
+are many hotels running in the market providing best of the services, but most of them are focusing
+mainly on customer acquisition rather than customer experience. For example, a customer books a
+ticket online and checks in to the hotel. From here most of the problems starts showing up for the
+customer and one of them are waiting in a queue for check in and check out. In this project similar
+kind of different problems coming to the customer while staying in the hotel are identified. Those
+problems which can be dealt with the help of hotel management system is implemented and the
+resulting web app appears in minimizing the customer pain significantly.
+
+Research Question or Problem that will be Addressed
+The research question for this project is “What are the different kinds of problems a customer
+staying in a hotel faces and how we can reduce or remove those problems with the help of web
+application”
+
+#Aims
+
+The aim of this project is to implement different problem specific web components and integrate
+them in hotel management system which will reduce some of the problems of user and increase
+efficiency of the user.
+Objectives
+1. Develop a web app for hotel management system which will be desktop and mobile
+compatible.
+2. User can register and login into the system. All the benefits of the platform can only be
+availed if user has successfully logged in into the system.
+3. User will be shown with list of rooms which can be booked if available.
+4. User would be able to self check in and check out.
+5. While staying in the hotel user can order food from the given list of available options at
+desired date and time.
+6. While in stay if user wants to travel to some different location, then taxi can be booked from
+the system. User would be free to choose source and destination location.
+7. While in stay user can set and alarm which would wake up the user at desired date and time.
+8. User can get the VAT invoice for different orders booked on the system while stay.
+
 # Issues and Challenges faced
 ## 1. Taxi Booking functionality. 
 Initially, for enabling user to give details of source, destination, date and time I implementated a simple form page with input text fields for source and destination.
