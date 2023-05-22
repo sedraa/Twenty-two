@@ -26,7 +26,7 @@ The research question for this project is “What are the different kinds of pro
 staying in a hotel faces and how we can reduce or remove those problems with the help of web
 application”
 
-#Aims
+# Aim
 
 The aim of this project is to implement different problem specific web components and integrate
 them in hotel management system which will reduce some of the problems of user and increase
